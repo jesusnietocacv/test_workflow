@@ -9,7 +9,6 @@ jobs:
     steps:
     - run: echo "Probando un run"
     - run: echo "${{ github.event_name }} event."
-    - name: Listar archivos en el repositorio
     - run: ls ${{ github.workspace }}
     - run: echo "Este job tiene estado -> ${{ job.status }}."
       
