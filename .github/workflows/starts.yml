@@ -12,7 +12,7 @@ jobs:
     - run: echo "el nombre de la rama es ${{ github.ref }} y tu repositorio es ${{ github.repository }}"
     - name: Checkout del repositorio
       uses: actions/checkout@v4
-    - run: echo "el ${{ github.repository }}" se ha clonado al ejecutor"
+    - run: echo "el ${{ github.repository }} se ha clonado al ejecutor"
     - run: echo "el workflow está testeando tu código en el ejecutor"
     - run: Ficheros en el repositorio
     - run: |
