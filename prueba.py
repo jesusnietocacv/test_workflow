@@ -1,1 +1,1 @@
-print("Cambiando py para ejecutar push sobre main")
+print("Hemos modificado el texto del print para poder hacer push a GitHub, y que se registre la acción. ¡Funciona!")
