@@ -7,13 +7,20 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+    - run: echo "Este job fué disparado automáticamente por ${{ github.event_name }} event."
+    - run: echo "Este job esta ejecutándose en ${{ runner.os }} server de GitHub!"
+    - run: echo "el nombre de la rama es ${{ github.ref }} y tu repositorio es ${{ github.repository }}"
     - name: Checkout del repositorio
       uses: actions/checkout@v4
-
+    - run: echo "el ${{ github.repository }}" se ha clonado al ejecutor"
+    - run: echo "el workflow está testeando tu código en el ejecutor"
+    - name: Ficheros en el repositorio
+    - run: |
+        ls ${{ github.workspace }}
+    - run: echo "el estado del job es ${{ job.status }}"
     - name: Ejecutar script python y guardar salida
       run: | 
         python prueba.py > salida.txt 2>&1
-
     - name: Subir salida como artefacto
       uses: actions/upload-artifact@v4
       with:
