@@ -7,9 +7,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Probando un run"
-    - run: echo "${{ github.event_name }} event."
-    - run: ls ${{ github.workspace }}
-    - run: echo "Este job tiene estado -> ${{ job.status }}."
-      
+    - name: Checkout del repositorio
+      uses: actions/checkout@v4
+
+    - name: Ejecutar script python y guardar salida
+      run: | 
+        python prueba.py > salida.txt 2>&1
+
+    - name: Subir salida como artefacto
+      uses: actions/upload-artifact@v4
+      with:
+        name: salida-python
+        path: salida.txt
     
