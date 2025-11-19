@@ -1,1 +1,1 @@
-print("Hemos modificado el texto del de la función print para poder hacer push a GitHub, y que se registre la acción. ¡Funciona!")
+print("Hemos modificado el texto del de la función print ¡Funciona!")
