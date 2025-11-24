@@ -1,1 +1,1 @@
-print("Hemos modificado el texto del de la función print ¡Funciona! Seguimos con las")
+print("Hemos modificado el texto del de la función print ¡Funciona!")

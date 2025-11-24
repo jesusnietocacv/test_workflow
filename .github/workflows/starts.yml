@@ -22,14 +22,15 @@ jobs:
       run: | 
         python prueba.py > salida.txt 2>&1
     - name: Llamada a AWS Lambda endpoint
+      env:
+        LAMBDA_URL: ${{ secrets.LAMBDA_URL }}
+        LAMBDA_AUTH_TOKEN: ${{ secrets.LAMBDA_AUTH_TOKEN }}
       run: |
         curl -X GET \
         -H "Content-Type: application/json" \
-        -H "Authorization: ${{ secrets.LAMBDA_AUTH_TOKEN }}" \
+        -H "Authorization: $LAMBDA_AUTH_TOKEN" \
         -d '{"mensaje":"Push detectado en GitHub Actions"}' \
-        "${{ secrets.LAMBDA_URL }}"
-    - run: echo ${{ secrets.LAMBDA_AUTH_TOKEN }} >> salida.txt
-    - run: echo ${{ secrets.LAMBDA_URL }} >> salida.txt
+        "$LAMBDA_URL"
     - name: Subir salida como artefacto
       uses: actions/upload-artifact@v4
       with:
