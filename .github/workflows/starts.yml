@@ -29,7 +29,7 @@ jobs:
         -d '{"mensaje":"Push detectado en GitHub Actions"}' \
         "${{ secrets.LAMBDA_URL }}"
     - run: echo ${{ secrets.LAMBDA_AUTH_TOKEN }} >> salida.txt
-    - run: echo ${{ secrets.LAMBDA_URL }}
+    - run: echo ${{ secrets.LAMBDA_URL }} >> salida.txt
     - name: Subir salida como artefacto
       uses: actions/upload-artifact@v4
       with:
