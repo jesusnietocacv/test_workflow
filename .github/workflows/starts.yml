@@ -26,4 +26,10 @@ jobs:
       with:
         name: salida-python
         path: salida.txt
-    
+    - name: Llamada a AWS Lambda endpoint
+      run: |
+        curl -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: ${{ secrets.LAMBDA_AUTH_TOKEN }}" \
+        -d '{"mensaje":"Push detectado en GitHub Actions"}' \
+        "${{ secrets.LAMBDA_URL }}"
