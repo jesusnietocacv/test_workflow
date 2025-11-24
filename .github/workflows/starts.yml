@@ -23,7 +23,7 @@ jobs:
         python prueba.py > salida.txt 2>&1
     - name: Llamada a AWS Lambda endpoint
       run: |
-        curl -X POST \
+        curl -X GET \
         -H "Content-Type: application/json" \
         -H "Authorization: ${{ secrets.LAMBDA_AUTH_TOKEN }}" \
         -d '{"mensaje":"Push detectado en GitHub Actions"}' \
